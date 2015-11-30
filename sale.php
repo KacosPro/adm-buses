@@ -40,7 +40,7 @@ $parameters = array($source,$destination,$hour,$date);
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Name</label>
 						<div class="col-sm-10">
-							<input type="hidden" name="source" value=<?php echo $parameters[0] ?> 
+							<input type="hidden" name="source" value=<?php echo $parameters[0] ?>
 							<p class="form-control-static"><?php echo $_POST[$key] ?></p>
 						</div>
 					</div>
@@ -71,7 +71,11 @@ $parameters = array($source,$destination,$hour,$date);
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Precio</label>
 						<div class="col-sm-10">
-							<p class="form-control-static"><?php echo $parameters[3] ?></p>
+						<?php if (strpos($aux, 'half') !== false): ?>
+							<p class="form-control-static"><?php echo '$125'?></p>
+						<?php else: ?>
+							<p class="form-control-static"><?php echo '$250'?></p>
+						<?php endif; ?>
 						</div>
 					</div>
 				</div>
