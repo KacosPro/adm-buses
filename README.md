@@ -5,7 +5,7 @@ Proyecto final de la materia Ingenieria de Software 2
 
 ***Colaboradores***
 
-Carlos Nasser
+Carlos Nasser - nassercarlos19
 
 Jesús Marín - marinn00
 
