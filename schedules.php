@@ -68,7 +68,7 @@ $wrongInfo = false;
       <?php endif; ?>
       </div>
     </nav>
-	
+
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -89,11 +89,15 @@ $wrongInfo = false;
 					<td><p><?php echo $result['origen'].' a '.$result['destino']; ?></p></td>
 					<td><p><?php echo $result['horario']; ?></p></td>
 					<td>
-						<form>
+						<form action="purchase.php" method="POST">
 							<div class="form-group">
-								<button type="submit" class="btn btn-default">Comprar</button>
-							</form>
-							<!--<a href=<?php echo 'purchase.php?source='.$result['origen'].'&destination='.$result['destino'].'&hour='.$result['horario'].'&date='.$date; ?>><p>comprar</p></a>-->
+								<input type="hidden" name="source" value=<?php echo $result['origen']; ?> >
+								<input type="hidden" name="destination" value=<?php echo $result['destino']; ?> >
+								<input type="hidden" name="hour" value=<?php echo $result['horario']; ?> >
+								<input type="hidden" name="date" value=<?php echo $date; ?> >
+								<input type="submit" class="btn btn-default" value="Comprar">
+							</div>
+						</form>
 						</td>
 					</tr>
 				<?php endforeach; ?>

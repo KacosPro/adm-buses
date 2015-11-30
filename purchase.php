@@ -1,7 +1,6 @@
 <?php
 
-$queryString = $_SERVER['QUERY_STRING'];
-parse_str($queryString, $parameters);
+$parameters = $_POST;
 
 ?>
 
