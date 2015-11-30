@@ -109,21 +109,21 @@ $select = $dbAccess->select($query);
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputPassword" class="col-sm-2 control-label">Destino</label>
+			<label class="col-sm-2 control-label">Destino</label>
 			<div class="col-sm-10">
 				<input type="hidden" name="source" value=<?php echo $parameters[1] ?> >
 				<p class="form-control-static"><?php echo $parameters[1] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputPassword" class="col-sm-2 control-label">Hora:</label>
+			<label class="col-sm-2 control-label">Hora:</label>
 			<div class="col-sm-10">
 				<input type="hidden" name="source" value=<?php echo $parameters[2] ?> >
 				<p class="form-control-static"><?php echo $parameters[2] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputPassword" class="col-sm-2 control-label">Fecha</label>
+			<label class="col-sm-2 control-label">Fecha</label>
 			<div class="col-sm-10">
 				<input type="hidden" name="source" value=<?php echo $parameters[3] ?> >
 				<p class="form-control-static"><?php echo $parameters[3] ?></p>
