@@ -4,19 +4,28 @@ include('manager/bd-access.php');
 
 $access = new DBAccess;
 
+session_start();
+
 $post = $_POST;
-$source = $post['source'];
-$destination = $post['destination'];
-$date = $post['date'];
+if (!isset($_SESSION['source'])){
+$_SESSION['source']=$post['source'];
+$_SESSION['destination']=$post['destination'];
+$_SESSION['date']= $post['date'];
+}
+
+$source = $_SESSION['source'];
+$destination = $_SESSION['destination'];
+$date = $_SESSION['date'];
+
 if(date('w', strtotime($date)) == 6 || date('w', strtotime($date)) == 0)  {
 	$query = "SELECT * FROM rutas where origen = '$source' and destino = '$destination' and weekend = 1";
 } else {
 	$query = "SELECT * FROM rutas where origen = '$source' and destino = '$destination' and weekday = 1";
 }
+
 $results = $access->select($query);
 $date = date( 'd-m-y' ,$date);
 
-session_start();
 if(isset($_SESSION['loggedin'])){
 $login = true;
 }else{
@@ -67,7 +76,17 @@ $wrongInfo = false;
       <?php endif; ?>
       </div>
     </nav>
-	
+
+    <?php if ($wrongInfo):?>
+    <div class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Error!</strong> Email o Password Incorrecto
+    </div>
+  <?php endif;
+    session_start();
+    $_SESSION['wrongInfo']=false;
+    ?>
+
 	<table class="table table-hover">
 		<thead>
 			<tr>
