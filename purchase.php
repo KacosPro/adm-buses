@@ -54,7 +54,7 @@ $select = $dbAccess->select($query);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ADM | Autobuses de la Mayab</title>
+	<title>NOPM | Autobuses de la Mayab</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" >
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -149,6 +149,11 @@ $select = $dbAccess->select($query);
 			</select>
 		</div>
 		<input type="submit" class="btn btn-default" value="Comprar">
+	</form>
+	<br>
+	<br>
+	<form action="schedules.php">
+	<input type="submit" class="btn btn-default" value="Cancelar">
 	</form>
 </div>
 </body>

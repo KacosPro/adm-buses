@@ -48,7 +48,7 @@ if($_SESSION['wrongInfo']==true){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ADM | Autobuses de la Mayab</title>
+	<title>NOPM | Autobuses de la Mayab</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -126,5 +126,11 @@ if($_SESSION['wrongInfo']==true){
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+	
+	<div class="container">
+		<form action="index.php">
+		<input type="submit" class="btn btn-default" value="Cancelar">
+		</form>
+	</div>
 </body>
 </html>
