@@ -2,7 +2,6 @@
 	include('manager/users.php');
 
 	$purchase = $_POST;
-	print_r($purchase);
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
