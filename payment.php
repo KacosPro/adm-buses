@@ -23,6 +23,10 @@ $post = $_POST;
 	<h1>Validando</h1>
 		<p id="status"></p>
 	</div>
+	<br>
+	<form action="index.php">
+	<input type="submit" class="btn btn-default" value="Regresar a la pagina de inicio">
+	</form>
 	<script>
 		window.onload = function() {
 			setTimeout(function(){
