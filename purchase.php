@@ -17,7 +17,8 @@ if (!isset($_SESSION['source'])){
 $source = $_SESSION['source'];
 $destination = $_SESSION['destination'];
 $hour = $_SESSION['hour'];
-$date = $_SESSION['date'];
+$date = new DateTime($_SESSION['date']);
+$date = $date->format('y-m-d');
 
 $db = Database::getInstance();
 $mysqli = $db->getConnection();
@@ -116,35 +117,35 @@ $select = $dbAccess->select($query);
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Destino</label>
 			<div class="col-sm-10">
-				<input type="hidden" name="source" value=<?php echo $parameters[1] ?> >
+				<input type="hidden" name="destination" value=<?php echo $parameters[1] ?> >
 				<p class="form-control-static"><?php echo $parameters[1] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Hora:</label>
 			<div class="col-sm-10">
-				<input type="hidden" name="source" value=<?php echo $parameters[2] ?> >
+				<input type="hidden" name="hour" value=<?php echo $parameters[2] ?> >
 				<p class="form-control-static"><?php echo $parameters[2] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Fecha</label>
 			<div class="col-sm-10">
-				<input type="hidden" name="source" value=<?php echo $parameters[3] ?> >
+				<input type="hidden" name="date" value=<?php echo $parameters[3] ?> >
 				<p class="form-control-static"><?php echo $parameters[3] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="source">Adultos:</label>
-			<select class="form-control input-sm" name="source" id="source">
+			<select class="form-control input-sm" name="normalSeats" id="source">
 				<?php for ($i = 0; $i < $seatsLeft+1; $i++): ?>
-					<option name="normalSeats" value= <?php echo $i; ?> ><?php echo $i; ?></option>
+					<option value= <?php echo $i; ?> ><?php echo $i; ?></option>
 				<?php endfor; ?>
 			</select>
 			<label for="destination">Niños/Estudiantes/Tercera edad:</label>
-			<select class="form-control input-sm" name="destination" id="destination">
+			<select class="form-control input-sm" name="discountSeats" id="destination">
 				<?php for ($i = 0; $i < $seatsLeft; $i++): ?>
-					<option name="discountSeats" value= <?php echo $i; ?> ><?php echo $i; ?></option>
+					<option value= <?php echo $i; ?> ><?php echo $i; ?></option>
 				<?php endfor; ?>
 			</select>
 		</div>
