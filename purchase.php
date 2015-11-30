@@ -100,7 +100,7 @@ $select = $dbAccess->select($query);
     if (ESTA LOGEADO) {
     	$url = 'buy.php';
     }else{
-    	$url = 'url de la pagina de login'
+    	$url = 'login.php'
     }
   ?>
 
