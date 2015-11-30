@@ -96,7 +96,6 @@ $select = $dbAccess->select($query);
       <strong>Error!</strong> Email o Password Incorrecto
     </div>
   <?php endif;
-    session_start();
     $_SESSION['wrongInfo']=false;
     ?>
 

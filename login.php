@@ -1,3 +1,27 @@
+<?php
+	include('manager/users.php');
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$users = new Users;
+	$user = $users->getUserInfo($username,$password);
+
+		session_start();
+			$rows =$user->num_rows;
+			if ($rows=='1'){
+				while($row= $user->fetch_assoc()){					
+					$_SESSION['usr']=$row['Username'];
+  					$_SESSION['pw']=$row['Password'];
+  					$_SESSION['loggedin']= true;
+  					$_SESSION['wrongInfo']= false;
+  					echo"<script type='text/javascript'>location.href ='index.php';</script>";
+				}
+			}else{ 
+				if (!empty($username)){
+					$_SESSION['wrongInfo']= true;
+				}
+			}
+			
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +40,20 @@
 			</div>
 	</nav>
 
-<form class="form" method="POST" action="checkOnDB.php">
+<form class="form" method="POST" action="login.php">
 	<div class="form-group">
 		<input type="email" class="form-control" placeholder="Email" name="username" required>
 		<input type="password" class="form-control" placeholder="Password" name="password" required>
 	</div>
 	<button type="submit" class="btn btn-default">Submit</button>
 </form>
+<?php if ($_SESSION['wrongInfo']== true):?>
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Error!</strong> Email o Password Incorrecto
+		</div>
+<?php endif;
+	$_SESSION['wrongInfo']=false;
+?>
 </body>
 </html>

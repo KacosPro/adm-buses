@@ -79,7 +79,6 @@ if($_SESSION['wrongInfo']==true){
 			<strong>Error!</strong> Email o Password Incorrecto
 		</div>
 	<?php endif;
-	session_start();
 	$_SESSION['wrongInfo']=false;
 	?>
 
