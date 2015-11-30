@@ -46,7 +46,7 @@
 		<input type="email" class="form-control" placeholder="Email" name="username" required>
 		<input type="password" class="form-control" placeholder="Password" name="password" required>
 	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
+	<button type="submit" class="btn btn-default">Login</button>
 </form>
 <br>
 <button type="button" disabled class="btn btn-default">Crear cuenta</button>

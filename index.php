@@ -53,7 +53,7 @@ if($_SESSION['wrongInfo']==true){
         <?php if ($login): ?>
         <ul class= "nav navbar-nav navbar-right">
           <li>
-            <a> Se encuentra en una session </a>
+            <a> Se encuentra en una sesion </a>
           </li>
           <li>
             <form class="navbar-form navbar-left" method="POST" action="destroySession.php">
@@ -68,7 +68,7 @@ if($_SESSION['wrongInfo']==true){
             <input type="email" class="form-control" placeholder="Email" name="username" required>
             <input type="password" class="form-control" placeholder="Password" name="password" required>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default">Login</button>
         </form>
       <?php endif; ?>
       </div>
@@ -99,8 +99,6 @@ if($_SESSION['wrongInfo']==true){
 						<option value= <?php echo $destinationCity['destino']; ?> ><?php echo $destinationCity['destino']; ?></option>
 					<?php endforeach; ?>
 				</select>
-			</div>
-			<div class="form-group">
 				<label for="source">Fecha:</label>
 				<input class="form-control input-sm" type="text" name="date" id="datepicker" required autocomplete="off">
 			</div>
