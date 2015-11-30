@@ -97,9 +97,14 @@ $select = $dbAccess->select($query);
     </div>
   <?php endif;
     $_SESSION['wrongInfo']=false;
+    if (ESTA LOGEADO) {
+    	$url = 'buy.php';
+    }else{
+    	$url = 'url de la pagina de login'
+    }
   ?>
 
-	<form action="#" method="POST">
+	<form action=<?php echo $url; ?> method="POST">
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Origen</label>
 			<div class="col-sm-10">
