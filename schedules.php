@@ -77,9 +77,6 @@ $wrongInfo = false;
       <?php endif; ?>
       </div>
     </nav>
-
-<<<<<<< HEAD
-=======
     <?php if ($wrongInfo):?>
     <div class="alert alert-danger">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -89,8 +86,6 @@ $wrongInfo = false;
     session_start();
     $_SESSION['wrongInfo']=false;
     ?>
-
->>>>>>> 0b0ee41b9875b30930f378c253ca9550bff2db9c
 	<table class="table table-hover">
 		<thead>
 			<tr>
