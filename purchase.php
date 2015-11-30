@@ -136,6 +136,7 @@ $select = $dbAccess->select($query);
 			</div>
 		</div>
 		<div class="form-group">
+			<p>Asientos restantes: <?php echo $seatsLeft; ?></p>
 			<label for="source">Adultos:</label>
 			<select class="form-control input-sm" name="normalSeats" id="source">
 				<?php for ($i = 0; $i < $seatsLeft+1; $i++): ?>
@@ -144,7 +145,7 @@ $select = $dbAccess->select($query);
 			</select>
 			<label for="destination">Niños/Estudiantes/Tercera edad:</label>
 			<select class="form-control input-sm" name="discountSeats" id="destination">
-				<?php for ($i = 0; $i < $seatsLeft; $i++): ?>
+				<?php for ($i = 0; $i < $seatsLeft+1; $i++): ?>
 					<option value= <?php echo $i; ?> ><?php echo $i; ?></option>
 				<?php endfor; ?>
 			</select>
