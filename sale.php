@@ -1,5 +1,7 @@
 <?php
 
+include('manager/bd-access.php');
+
 session_start();
 
 $source = $_SESSION['source'];
@@ -40,7 +42,6 @@ $parameters = array($source,$destination,$hour,$date);
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Name</label>
 						<div class="col-sm-10">
-							<input type="hidden" name="source" value=<?php echo $parameters[0] ?>
 							<p class="form-control-static"><?php echo $_POST[$key] ?></p>
 						</div>
 					</div>
@@ -81,9 +82,16 @@ $parameters = array($source,$destination,$hour,$date);
 				</div>
 				<p>----------------------------------------------------------------------------------------</p>
 				<br><br>
+				<?php
+					$dbAccess = new DBAccess;
+					$datetime = $parameters[3].' '.$parameters[2];
+					$query = "INSERT INTO reservaciones (nombre, origen, destino, fecha_hora) VALUES ('$_POST[$key]', '$parameters[0]', '$parameters[1]', '$datetime');";
+					echo $query;
+					$dbAccess->insert($query);
+				?>
 			<?php endif; ?>
 		<?php endforeach; ?>
-		<input type="submit" class="btn btn-default" value="Comprar">
+		<input type="submit" class="btn btn-default" value="Imprimir">
 	</form>
 	<br>
 </body>
