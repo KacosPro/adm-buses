@@ -14,7 +14,8 @@ if(date('w', strtotime($date)) == 6 || date('w', strtotime($date)) == 0)  {
 	$query = "SELECT * FROM rutas where origen = '$source' and destino = '$destination' and weekday = 1";
 }
 $results = $access->select($query);
-$date = date( 'd-m-y' ,$date);
+$date = new DateTime;
+$date = $date->format('d-m-y');
 
 ?>
 <!DOCTYPE html>
