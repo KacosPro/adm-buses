@@ -22,8 +22,16 @@ $date = $_SESSION['date'];
 $db = Database::getInstance();
 $mysqli = $db->getConnection();
 $fechaHora = $date.' '.$hour;
-$query = "SELECT COUNT(*) FROM reservaciones WHERE origen='$source' and destino='$destination' and fecha_hora='$fechaHora'";
+$query = "SELECT * FROM reservaciones WHERE origen='$source' and destino='$destination' and fecha_hora='$fechaHora'";
 $results = $mysqli->query($query);
+
+$seats = $results->num_rows;
+
+if ($seats < 21) {
+	$seatsLeft = 20 - $seats;
+}else{
+	$seatsLeft = 0;
+}
 
 $parameters = array($source,$destination,$hour,$date);
 if(isset($_SESSION['loggedin'])){
@@ -92,7 +100,7 @@ $select = $dbAccess->select($query);
     $_SESSION['wrongInfo']=false;
     ?>
 
-	<form>
+	<form action="#" method="POST">
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Origen</label>
 			<div class="col-sm-10">
@@ -124,15 +132,15 @@ $select = $dbAccess->select($query);
 		<div class="form-group">
 			<label for="source">Adultos:</label>
 			<select class="form-control input-sm" name="source" id="source">
-				<?php foreach ($sourceCities as $sourceCity): ?>
-					<option value= <?php echo $sourceCity['origen']; ?> ><?php echo $sourceCity['origen']; ?></option>
-				<?php endforeach; ?>
+				<?php for ($i = 0; $i < $seatsLeft+1; $i++): ?>
+					<option name="normalSeats" value= <?php echo $i; ?> ><?php echo $i; ?></option>
+				<?php endfor; ?>
 			</select>
 			<label for="destination">Niños/Estudiantes/Tercera edad:</label>
 			<select class="form-control input-sm" name="destination" id="destination">
-				<?php foreach ($destinationCities as $destinationCity): ?>
-					<option value= <?php echo $destinationCity['destino']; ?> ><?php echo $destinationCity['destino']; ?></option>
-				<?php endforeach; ?>
+				<?php for ($i = 0; $i < $seatsLeft; $i++): ?>
+					<option name="discountSeats" value= <?php echo $i; ?> ><?php echo $i; ?></option>
+				<?php endfor; ?>
 			</select>
 		</div>
 		<input type="submit" class="btn btn-default" value="Comprar">
