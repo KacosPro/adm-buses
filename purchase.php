@@ -19,6 +19,12 @@ $destination = $_SESSION['destination'];
 $hour = $_SESSION['hour'];
 $date = $_SESSION['date'];
 
+$db = Database::getInstance();
+$mysqli = $db->getConnection();
+$fechaHora = $date.' '.$hour;
+$query = "SELECT COUNT(*) FROM reservaciones WHERE origen='$source' and destino='$destination' and fecha_hora='$fechaHora'";
+$results = $mysqli->query($query);
+
 $parameters = array($source,$destination,$hour,$date);
 if(isset($_SESSION['loggedin'])){
 	$login = true;
