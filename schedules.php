@@ -17,6 +17,18 @@ $results = $access->select($query);
 $date = new DateTime;
 $date = $date->format('d-m-y');
 
+session_start();
+if(isset($_SESSION['loggedin'])){
+$login = true;
+}else{
+$login = false;
+}
+if($_SESSION['wrongInfo']==true){
+$wrongInfo = true;
+}else{
+$wrongInfo = false;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,6 +40,35 @@ $date = $date->format('d-m-y');
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
+
+	<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Autobuses NOPM</a>
+        </div>
+        <?php if ($login): ?>
+        <ul class= "nav navbar-nav navbar-right">
+          <li>
+            <a> Se encuentra en una session </a>
+          </li>
+          <li>
+            <form class="navbar-form navbar-left" method="POST" action="destroySession.php">
+          </li>
+        </ul>
+          <button type="submit" class="btn btn-default">Cerrar Sesion</button>
+        </form>
+      <?php else:?>
+        <form class="navbar-form navbar-left" method="POST" action="checkOnDB.php">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email" name="username" required type='email'>
+            <input type="text" class="form-control" placeholder="Password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      <?php endif; ?>
+      </div>
+    </nav>
+	
 	<table class="table table-hover">
 		<thead>
 			<tr>
