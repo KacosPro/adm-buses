@@ -6,6 +6,18 @@ $routes = new Routes;
 $sourceCities = $routes->getSourceCities();
 $destinationCities = $routes->getDestinationCities();
 
+session_start();
+if(isset($_SESSION['loggedin'])){
+$login = true;
+}else{
+$login = false;
+}
+if($_SESSION['wrongInfo']==true){
+$wrongInfo = true;
+}else{
+$wrongInfo = false;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +31,7 @@ $destinationCities = $routes->getDestinationCities();
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/united/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.min.css">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/humanity/jquery-ui.min.css">
 	<script>
 		$(function() {
 			$( "#datepicker" ).datepicker({
@@ -32,6 +44,46 @@ $destinationCities = $routes->getDestinationCities();
 	</script>
 </head>
 <body>
+
+	<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Autobuses NOPM</a>
+        </div>
+        <?php if ($login): ?>
+        <ul class= "nav navbar-nav navbar-right">
+          <li>
+            <a> Se encuentra en una session </a>
+          </li>
+          <li>
+            <form class="navbar-form navbar-left" method="POST" action="destroySession.php">
+          </li>
+        </ul>
+          <button type="submit" class="btn btn-default">Cerrar Sesion</button>
+        </form>
+      <?php else:?>
+        <form class="navbar-form navbar-left" method="POST" action="checkOnDB.php">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email" name="username" required type='email'>
+            <input type="text" class="form-control" placeholder="Password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      <?php endif; ?>
+      </div>
+    </nav>
+
+  <?php if ($wrongInfo):?>
+    <div class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Error!</strong> Email o Password Incorrecto
+    </div>
+  <?php endif;
+    session_start();
+    $_SESSION['wrongInfo']=false;
+    ?>
+
+
 	<header>
 		
 	</header>
