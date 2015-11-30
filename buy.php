@@ -1,7 +1,21 @@
 <?php
 
-$purchase = $_POST;
-$ticketsNumber = $_POST['normalSeats']+$_POST['discountSeats'];
+session_start();
+if (!isset($_SESSION['normalSeats'])){
+	$_SESSION['normalSeats']=$_POST['normalSeats']; 
+  	$_SESSION['discountSeats']=$_POST['discountSeats'];
+}
+
+$purchase = array(
+    "source" => $_SESSION['source'],
+    "destination" => $_SESSION['destination'],
+    "hour" => $_SESSION['hour'],
+    "date" => $_SESSION['date'],
+    "normalSeats" => $_SESSION['normalSeats'],
+    "discountSeats" => $_SESSION['discountSeats'],
+);
+
+$ticketsNumber = $_SESSION['normalSeats']+$_SESSION['discountSeats'];
 
 ?>
 
@@ -17,7 +31,26 @@ $ticketsNumber = $_POST['normalSeats']+$_POST['discountSeats'];
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
-	<p>Ingrese los nombres de los usuarios</p>
+	<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.php">Autobuses NOPM</a>
+        </div>
+        <ul class= "nav navbar-nav navbar-right">
+          <li>
+            <a> Se encuentra en una sesion </a>
+          </li>
+          <li>
+            <form class="navbar-form navbar-left" method="POST" action="destroySession.php">
+          </li>
+        </ul>
+          <button type="submit" class="btn btn-default">Cerrar Sesion</button>
+        </form>
+         <button type="button" disabled class="btn btn-default">Mostrar Historial</button>
+      </div>
+    </nav>
+    <div class="container">
+	<p>Ingrese el nombre de los usuarios</p>
 	<form class="form-horizontal" action='confirm.php' method="POST">
 		<?php for ($i=0; $i < $ticketsNumber; $i++): ?>
 			<div class="form-group">
@@ -33,5 +66,6 @@ $ticketsNumber = $_POST['normalSeats']+$_POST['discountSeats'];
 			</div>
 		</div>
 	</form>
+</div>
 </body>
 </html>
