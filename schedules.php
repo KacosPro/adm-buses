@@ -28,14 +28,14 @@ $date = new DateTime;
 $date = $date->format('d-m-y');
 
 if(isset($_SESSION['loggedin'])){
-$login = true;
+	$login = true;
 }else{
-$login = false;
+	$login = false;
 }
 if($_SESSION['wrongInfo']==true){
-$wrongInfo = true;
+	$wrongInfo = true;
 }else{
-$wrongInfo = false;
+	$wrongInfo = false;
 }
 
 ?>
@@ -51,41 +51,41 @@ $wrongInfo = false;
 <body>
 
 	<nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Autobuses NOPM</a>
-        </div>
-        <?php if ($login): ?>
-        <ul class= "nav navbar-nav navbar-right">
-          <li>
-            <a> Se encuentra en una session </a>
-          </li>
-          <li>
-            <form class="navbar-form navbar-left" method="POST" action="destroySession.php">
-          </li>
-        </ul>
-          <button type="submit" class="btn btn-default">Cerrar Sesion</button>
-        </form>
-      <?php else:?>
-        <form class="navbar-form navbar-left" method="POST" action="checkOnDB.php">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Email" name="username" required type='email'>
-            <input type="text" class="form-control" placeholder="Password" name="password" required>
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      <?php endif; ?>
-      </div>
-    </nav>
-    <?php if ($wrongInfo):?>
-    <div class="alert alert-danger">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Error!</strong> Email o Password Incorrecto
-    </div>
-  <?php endif;
-    session_start();
-    $_SESSION['wrongInfo']=false;
-    ?>
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Autobuses NOPM</a>
+			</div>
+			<?php if ($login): ?>
+				<ul class= "nav navbar-nav navbar-right">
+					<li>
+						<a> Se encuentra en una session </a>
+					</li>
+					<li>
+						<form class="navbar-form navbar-left" method="POST" action="destroySession.php">
+						</li>
+					</ul>
+					<button type="submit" class="btn btn-default">Cerrar Sesion</button>
+				</form>
+			<?php else:?>
+				<form class="navbar-form navbar-left" method="POST" action="checkOnDB.php">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Email" name="username" required type='email'>
+						<input type="text" class="form-control" placeholder="Password" name="password" required>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			<?php endif; ?>
+		</div>
+	</nav>
+	<?php if ($wrongInfo):?>
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Error!</strong> Email o Password Incorrecto
+		</div>
+	<?php endif;
+	session_start();
+	$_SESSION['wrongInfo']=false;
+	?>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -115,10 +115,10 @@ $wrongInfo = false;
 								<input type="submit" class="btn btn-default" value="Comprar">
 							</div>
 						</form>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
-	</body>
-	</html>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+</body>
+</html>
