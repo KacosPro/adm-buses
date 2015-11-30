@@ -1,7 +1,6 @@
 <?php
 
 $purchase = $_POST;
-$ticketsNumber = $_POST['normalSeats']+$_POST['discountSeats'];
 
 ?>
 
@@ -19,14 +18,28 @@ $ticketsNumber = $_POST['normalSeats']+$_POST['discountSeats'];
 <body>
 	<p>Ingrese los nombres de los usuarios</p>
 	<form class="form-horizontal" action='confirm.php' method="POST">
-		<?php for ($i=0; $i < $ticketsNumber; $i++): ?>
-			<div class="form-group">
-				<label for=<?php echo 'name'.$i+1; ?> class="col-sm-2 control-label">Nombre: </label>
-				<div class="col-sm-10">
-				<input type="text" class="form-control" name=<?php echo 'name'.$i+1; ?> id=<?php echo 'name'.$i+1; ?> placeholder="Nombre" required>
+		<?php if ($_POST['normalSeats'] != 0): ?>
+			<p>Asientos regulares: </p>
+			<?php for ($i=0; $i < $_POST['normalSeats']; $i++): ?>
+				<div class="form-group">
+					<label for=<?php echo 'regular'.$i; ?> class="col-sm-2 control-label">Nombre: </label>
+					<div class="col-sm-10">
+					<input type="text" class="form-control" name=<?php echo 'regular'.$i; ?> id=<?php echo 'regular'.$i; ?> placeholder="Nombre" required>
+					</div>
 				</div>
-			</div>
-		<?php endfor; ?>
+			<?php endfor; ?>
+		<?php endif; ?>
+		<?php if ($_POST['discountSeats'] != 0): ?>
+			<p>Asientos con descuento:</p>
+			<?php for ($i=0; $i < $_POST['discountSeats']; $i++): ?>
+				<div class="form-group">
+					<label for=<?php echo 'half'.$i; ?> class="col-sm-2 control-label">Nombre: </label>
+					<div class="col-sm-10">
+					<input type="text" class="form-control" name=<?php echo 'half'.$i; ?> id=<?php echo 'half'.$i; ?> placeholder="Nombre" required>
+					</div>
+				</div>
+			<?php endfor; ?>
+		<?php endif; ?>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<input type="submit" class="btn btn-default" value="Comprar">
