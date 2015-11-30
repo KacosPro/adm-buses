@@ -11,4 +11,4 @@ Carlos Nasser - [nassercarlos19](https://github.com/nassercarlos19)
 
 Jesús Marín - [marinn00](https://github.com/marinn00)
 
-Carlos Proaño - [KacosPro](https://github.com/Kacos)
+Carlos Proaño - [KacosPro](https://github.com/KacosPro)
