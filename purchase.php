@@ -97,13 +97,13 @@ $select = $dbAccess->select($query);
     </div>
   <?php endif;
     $_SESSION['wrongInfo']=false;
-    if (ESTA LOGEADO) {
+    if ($login) {
     	$url = 'buy.php';
     }else{
-    	$url = 'url de la pagina de login'
+    	$url = 'login.php';
     }
   ?>
-
+  <div class="container">
 	<form action=<?php echo $url; ?> method="POST">
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Origen</label>
@@ -149,5 +149,6 @@ $select = $dbAccess->select($query);
 		</div>
 		<input type="submit" class="btn btn-default" value="Comprar">
 	</form>
+</div>
 </body>
 </html>

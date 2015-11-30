@@ -82,8 +82,7 @@ if($_SESSION['wrongInfo']==true){
 	$_SESSION['wrongInfo']=false;
 	?>
 
-	<header>
-	</header>
+	<div class="container">
 	<div id="form-container">
 		<form action="schedules.php" method="POST">
 			<div class="form-group">
@@ -107,5 +106,6 @@ if($_SESSION['wrongInfo']==true){
 			<input type="submit" class="btn btn-default">
 		</form>
 	</div>
+</div>
 </body>
 </html>

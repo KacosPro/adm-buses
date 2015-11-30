@@ -13,7 +13,7 @@
   					$_SESSION['pw']=$row['Password'];
   					$_SESSION['loggedin']= true;
   					$_SESSION['wrongInfo']= false;
-  					echo"<script type='text/javascript'>location.href ='index.php';</script>";
+  					echo"<script type='text/javascript'>location.href ='buy.php';</script>";
 				}
 			}else{ 
 				if (!empty($username)){
@@ -40,6 +40,7 @@
 			</div>
 	</nav>
 
+<div class="container">
 <form class="form" method="POST" action="login.php">
 	<div class="form-group">
 		<input type="email" class="form-control" placeholder="Email" name="username" required>
@@ -47,6 +48,11 @@
 	</div>
 	<button type="submit" class="btn btn-default">Submit</button>
 </form>
+<br>
+<form action="purchase.php">
+<input type="submit" class="btn btn-default" value="Cancelar">
+</form>
+</div>
 <?php if ($_SESSION['wrongInfo']== true):?>
 		<div class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
