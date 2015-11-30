@@ -1,5 +1,7 @@
 <?php
+
 include('manager/bd-access.php');
+
 session_start();
 
 $post= $_POST;
