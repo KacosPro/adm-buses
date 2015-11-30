@@ -47,10 +47,16 @@ $date = $date->format('d-m-y');
 				<tr>
 					<td><p><?php echo $result['origen'].' a '.$result['destino']; ?></p></td>
 					<td><p><?php echo $result['horario']; ?></p></td>
-					<td><a href=<?php echo 'purchase.php?source='.$result['origen'].'&destination='.$result['destino'].'&hour='.$result['horario'].'&date='.$date; ?>><p>comprar</p></a></td>
-				</tr>
-			<?php endforeach; ?>
-		</tbody>
-	</table>
-</body>
-</html>
+					<td>
+						<form>
+							<div class="form-group">
+								<button type="submit" class="btn btn-default">Comprar</button>
+							</form>
+							<!--<a href=<?php echo 'purchase.php?source='.$result['origen'].'&destination='.$result['destino'].'&hour='.$result['horario'].'&date='.$date; ?>><p>comprar</p></a>-->
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	</body>
+	</html>
