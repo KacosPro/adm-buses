@@ -4,11 +4,4 @@
  *
  */
 
-class NameAdapter {
-
-	function NameAdapter($name) {
-		
-	}
-}
-
 ?>
