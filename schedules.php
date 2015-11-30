@@ -103,6 +103,9 @@ if($_SESSION['wrongInfo']==true){
 				<td>
 					<p>Hora</p>
 				</td>
+				<td>
+					<p>Costo</p>
+				</td>
 				<td></td>
 			</tr>
 		</thead>
@@ -111,6 +114,7 @@ if($_SESSION['wrongInfo']==true){
 				<tr>
 					<td><p><?php echo $result['origen'].' a '.$result['destino']; ?></p></td>
 					<td><p><?php echo $result['horario']; ?></p></td>
+					<td><p>$250</p></td>
 					<td>
 						<form action="purchase.php" method="POST">
 							<div class="form-group">

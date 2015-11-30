@@ -101,7 +101,7 @@ $select = $dbAccess->select($query);
     if ($login) {
     	$url = 'buy.php';
     }else{
-    	$url = 'login.php'
+    	$url = 'login.php';
     }
   ?>
   <div class="container">

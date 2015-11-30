@@ -1,13 +1,13 @@
-CREATE TABLE `Usernames` (
-  `Username` varchar(100) NOT NULL,
-  `Password` varchar(30) NOT NULL,
-  `FirstName` varchar(30) NOT NULL,
-  `LastName` varchar(30) NOT NULL,
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+CREATE TABLE IF NOT EXISTS `usernames` (
+  `username` varchar(100) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `firstName` varchar(30) NOT NULL,
+  `lastName` varchar(30) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  CHARSET=utf32 AUTO_INCREMENT=4 ;
 
-INSERT INTO `Usernames` (`Username`, `Password`, `FirstName`, `LastName`, `Id`) VALUES
+INSERT INTO `usernames` (`username`, `password`, `firstName`, `lastName`, `Id`) VALUES
 ('sbncacos@gmail.com', 'VivaEcuador', 'Carlos', 'Proaño', 1),
 ('chuchoyei@hotmail.com', 'VivaMexico', 'Jesus', 'Marin', 2),
 ('nasser@gmail.com', 'VivaSalvador', 'Carlos', 'Nasser', 3);
