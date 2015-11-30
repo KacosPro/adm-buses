@@ -49,6 +49,9 @@
 	<button type="submit" class="btn btn-default">Submit</button>
 </form>
 <br>
+<button type="button" disabled class="btn btn-default">Crear cuenta</button>
+<br>
+<br>
 <form action="purchase.php">
 <input type="submit" class="btn btn-default" value="Cancelar">
 </form>
