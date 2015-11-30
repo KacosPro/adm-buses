@@ -11,6 +11,12 @@ if (!isset($_SESSION['source'])){
 	$_SESSION['source']=$post['source'];
 	$_SESSION['destination']=$post['destination'];
 	$_SESSION['date']= $post['date'];
+}else{
+	if (isset($post['source'])){
+		$_SESSION['source']=$post['source'];
+		$_SESSION['destination']=$post['destination'];
+		$_SESSION['date']= $post['date'];
+	}
 }
 
 $source = $_SESSION['source'];
@@ -55,7 +61,7 @@ if($_SESSION['wrongInfo']==true){
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Autobuses NOPM</a>
+				<a class="navbar-brand" href="index.php">Autobuses NOPM</a>
 			</div>
 			<?php if ($login): ?>
 				<ul class= "nav navbar-nav navbar-right">
@@ -71,8 +77,8 @@ if($_SESSION['wrongInfo']==true){
 			<?php else:?>
 				<form class="navbar-form navbar-left" method="POST" action="checkOnDB.php">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Email" name="username" required type='email'>
-						<input type="text" class="form-control" placeholder="Password" name="password" required>
+						<input type="email" class="form-control" placeholder="Email" name="username" required>
+						<input type="password" class="form-control" placeholder="Password" name="password" required>
 					</div>
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
