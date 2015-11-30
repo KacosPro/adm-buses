@@ -1,6 +1,5 @@
 <?php
 	include('manager/users.php');
-	echo "hola";
 
 	$purchase = $_POST;
 
