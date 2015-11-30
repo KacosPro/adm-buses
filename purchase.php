@@ -107,7 +107,7 @@ if($_SESSION['wrongInfo']==true){
 	</div>
 	<div class="alert alert-danger" id="seatsValidator" hidden>
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Error!</strong> No hay tantos asientos
+		<strong>Error!</strong> No hay suficientes asientos
 	</div>
   <div class="container">
 	<form action=<?php echo $url; ?> method="POST">

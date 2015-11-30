@@ -34,6 +34,7 @@ $parameters = array($source,$destination,$hour,$date);
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
+	<div class="container">
 	<form>
 		<?php foreach ($_POST as $key => $post): ?>
 			<?php $aux = $key;?>
@@ -93,5 +94,9 @@ $parameters = array($source,$destination,$hour,$date);
 		<input type="submit" class="btn btn-default" value="Imprimir">
 	</form>
 	<br>
+	<form action="index.php">
+	<input type="submit" class="btn btn-default" value="Regresar a la pagina de inicio">
+	</form>
+	</div>
 </body>
 </html>

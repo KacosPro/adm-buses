@@ -13,8 +13,8 @@
 			$rows =$user->num_rows;
 			if ($rows=='1'){
 				while($row= $user->fetch_assoc()){					
-					$_SESSION['usr']=$row['Username'];
-  					$_SESSION['pw']=$row['Password'];
+					$_SESSION['usr']=$row['username'];
+  					$_SESSION['pw']=$row['password'];
   					$_SESSION['loggedin']= true;
   					$_SESSION['wrongInfo']= false;
 				}
