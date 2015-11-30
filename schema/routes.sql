@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS `rutas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf32;
 
 INSERT INTO `rutas` (`origen`, `destino`, `horario`, `weekday`, `weekend`) VALUES
-('Mérida', 'Campeche', '09:00:00', 1, 0),
-('Mérida', 'Campeche', '12:00:00', 1, 1),
-('Mérida', 'Campeche', '15:00:00', 1, 1),
-('Mérida', 'Campeche', '18:00:00', 1, 1),
-('Mérida', 'Campeche', '21:00:00', 1, 1),
-('Mérida', 'Campeche', '00:00:00', 0, 1),
-('Mérida', 'Campeche', '02:00:00', 1, 0);
+('Merida', 'Campeche', '09:00:00', 1, 0),
+('Merida', 'Campeche', '12:00:00', 1, 1),
+('Merida', 'Campeche', '15:00:00', 1, 1),
+('Merida', 'Campeche', '18:00:00', 1, 1),
+('Merida', 'Campeche', '21:00:00', 1, 1),
+('Merida', 'Campeche', '00:00:00', 0, 1),
+('Merida', 'Campeche', '02:00:00', 1, 0);

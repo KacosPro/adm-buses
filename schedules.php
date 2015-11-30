@@ -14,8 +14,7 @@ if(date('w', strtotime($date)) == 6 || date('w', strtotime($date)) == 0)  {
 	$query = "SELECT * FROM rutas where origen = '$source' and destino = '$destination' and weekday = 1";
 }
 $results = $access->select($query);
-echo $query.'<br>';
-print_r($results);
+$date = date( 'd-m-y' ,$date);
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +46,7 @@ print_r($results);
 				<tr>
 					<td><p><?php echo $result['origen'].' a '.$result['destino']; ?></p></td>
 					<td><p><?php echo $result['horario']; ?></p></td>
-					<td><a href=""><p>comprar</p></a></td>
+					<td><a href=<?php echo 'purchase.php?source='.$result['origen'].'&destination='.$result['destino'].'&hour='.$result['horario'].'&date='.$date; ?>><p>comprar</p></a></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
