@@ -1,11 +1,18 @@
 <?php
 	include('manager/users.php');
+
+	$purchase = $_POST;
+	print_r($purchase);
+
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$users = new Users;
 	$user = $users->getUserInfo($username,$password);
 
 		session_start();
+		$_SESSION['normalSeats']=$purchase['normalSeats']; 
+  		$_SESSION['discountSeats']=$purchase['discountSeats']; 
+
 			$rows =$user->num_rows;
 			if ($rows=='1'){
 				while($row= $user->fetch_assoc()){					
@@ -45,8 +52,14 @@
 	<div class="form-group">
 		<input type="email" class="form-control" placeholder="Email" name="username" required>
 		<input type="password" class="form-control" placeholder="Password" name="password" required>
+		<input type="hidden" name="source" value=<?php echo $purchase['source'] ?> >
+		<input type="hidden" name="destination" value=<?php echo $purchase['destination'] ?> >
+		<input type="hidden" name="hour" value=<?php echo $purchase['hour'] ?> >
+		<input type="hidden" name="date" value=<?php echo $purchase['date'] ?> >
+		<input type="hidden" name="normalSeats" value=<?php echo $purchase['normalSeats'] ?> >
+		<input type="hidden" name="discountSeats" value=<?php echo $purchase['discountSeats'] ?> >
 	</div>
-	<button type="submit" class="btn btn-default">Login</button>
+	<input type="submit" class="btn btn-default" value="Login">
 </form>
 <br>
 <button type="button" disabled class="btn btn-default">Crear cuenta</button>
