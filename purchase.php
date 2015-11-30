@@ -98,7 +98,7 @@ $select = $dbAccess->select($query);
   <?php endif;
     session_start();
     $_SESSION['wrongInfo']=false;
-    ?>
+  ?>
 
 	<form action="#" method="POST">
 		<div class="form-group">
