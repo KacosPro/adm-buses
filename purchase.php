@@ -46,10 +46,6 @@ if($_SESSION['wrongInfo']==true){
 	$wrongInfo = false;
 }
 
-$dbAccess = new DBAccess;
-$query = "SELECT * FROM reservaciones WHERE origen='$source' and destino='$destination' and fecha_hora='$fechaHora'";
-$select = $dbAccess->select($query);
-
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +132,7 @@ $select = $dbAccess->select($query);
 			</div>
 		</div>
 		<div class="form-group">
-			<p>Asientos restantes: <?php echo $sea; ?></p>
+			<p>Asientos restantes: <?php echo $seatsLeft; ?></p>
 			<label for="source">Adultos:</label>
 			<select class="form-control input-sm" name="normalSeats" id="source">
 				<?php for ($i = 0; $i < $seatsLeft+1; $i++): ?>

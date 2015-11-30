@@ -2,11 +2,11 @@
 
 session_start();
 if (!isset($_SESSION['normalSeats'])){
-	$_SESSION['normalSeats']=$_POST['normalSeats']; 
+	$_SESSION['normalSeats']=$_POST['normalSeats'];
   	$_SESSION['discountSeats']=$_POST['discountSeats'];
 }else{
 	if (isset($_POST['normalSeats'])){
-		$_SESSION['normalSeats']=$_POST['normalSeats']; 
+		$_SESSION['normalSeats']=$_POST['normalSeats'];
   		$_SESSION['discountSeats']=$_POST['discountSeats'];
 	}
 }
