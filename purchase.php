@@ -18,25 +18,28 @@ $parameters = $_POST;
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Origen</label>
 			<div class="col-sm-10">
-			<input type="hidden" name="source" value=<?php echo $parameters['source'] ?> >
-			<p class="form-control-static"><?php echo $parameters['source'] ?></p>
+				<input type="hidden" name="source" value=<?php echo $parameters['source'] ?> >
+				<p class="form-control-static"><?php echo $parameters['source'] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-2 control-label">Destino</label>
 			<div class="col-sm-10">
+				<input type="hidden" name="source" value=<?php echo $parameters['destination'] ?> >
 				<p class="form-control-static"><?php echo $parameters['destination'] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-2 control-label">Hora:</label>
 			<div class="col-sm-10">
+				<input type="hidden" name="source" value=<?php echo $parameters['hour'] ?> >
 				<p class="form-control-static"><?php echo $parameters['hour'] ?></p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-2 control-label">Fecha</label>
 			<div class="col-sm-10">
+				<input type="hidden" name="source" value=<?php echo $parameters['date'] ?> >
 				<p class="form-control-static"><?php echo $parameters['date'] ?></p>
 			</div>
 		</div>
