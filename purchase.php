@@ -101,6 +101,14 @@ if($_SESSION['wrongInfo']==true){
     	$url = 'login.php';
     }
   ?>
+  	<div class="alert alert-danger" id="emptySeats" hidden>
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Error!</strong> Elija un asiento
+	</div>
+	<div class="alert alert-danger" id="seatsValidator" hidden>
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Error!</strong> No hay tantos asientos
+	</div>
   <div class="container">
 	<form action=<?php echo $url; ?> method="POST">
 		<div class="form-group">
@@ -132,7 +140,7 @@ if($_SESSION['wrongInfo']==true){
 			</div>
 		</div>
 		<div class="form-group">
-			<p>Asientos restantes: <?php echo $seatsLeft; ?></p>
+			<p>Asientos restantes: <p id="seatsLeft"><?php echo $seatsLeft; ?></p></p>
 			<label for="source">Adultos:</label>
 			<select class="form-control input-sm" name="normalSeats" id="source">
 				<?php for ($i = 0; $i < $seatsLeft+1; $i++): ?>
@@ -146,13 +154,31 @@ if($_SESSION['wrongInfo']==true){
 				<?php endfor; ?>
 			</select>
 		</div>
-		<input type="submit" class="btn btn-default" value="Comprar">
+		<input type="submit" id="buy" hidden>
 	</form>
+	<input id="go" type="submit" class="btn btn-default" value="Comprar" hidden>
 	<br>
 	<br>
 	<form action="schedules.php">
 	<input type="submit" class="btn btn-default" value="Cancelar">
 	</form>
+	<script>
+		$('#go').click(function(){
+			var source = $( '#source option:selected' ).val();
+			var destination = $( '#destination option:selected' ).val();
+			var total = parseInt(source) + parseInt(destination);
+			var seatsLeft = $( '#seatsLeft' ).text();
+			console.log(total + ' - ' + seatsLeft);
+			if (source == 0 && destination == 0) {
+				$('#emptySeats').show();
+			}else if (total > parseInt(seatsLeft)) {
+				$('#seatsValidator').show();
+			}else{
+				console.log('Todo bien');
+				$('#buy').click();
+			};
+		});
+	</script>
 </div>
 </body>
 </html>

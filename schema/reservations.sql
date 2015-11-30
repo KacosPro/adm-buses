@@ -4,5 +4,7 @@ CREATE TABLE IF NOT EXISTS `reservaciones` (
   `origen` varchar(100) NOT NULL,
   `destino` varchar(100) NOT NULL,
   `fecha_hora` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+  `ruta_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ruta_id` (`ruta_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32;
