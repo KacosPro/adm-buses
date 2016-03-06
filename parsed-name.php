@@ -19,9 +19,9 @@
 	}
 
 	$person = new Old($firstname, $lastname);
-	//print_r($person->getName());
 	$newSystem = new Adapter ($person->getName(),$person->getlastname());
 	print_r($newSystem->getName());
 	
+	return $newSystem->getName();
 
 ?>
