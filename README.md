@@ -1,5 +1,5 @@
 # adm-buses
-Proyecto final de la materia Ingenieria de Software 2
+Parcial de la materia Calidad de Software
 
 **Carrera:** Ingeniería en Sistemas y Tecnologías de la Comunicación
 
