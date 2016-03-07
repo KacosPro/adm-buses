@@ -1,3 +1,12 @@
+<?php
+session_start();
+if($_SESSION['repeatedInfo']==true){
+	$repeatedInfo = true;
+}else{
+	$repeatedInfo = false;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +26,16 @@
         </div>
         </div>
     </nav>
+    <?php if ($repeatedInfo):?>
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Error!</strong> Email ya esta asociado a una cuenta!
+		</div>
+	<?php endif;
+	$_SESSION['repeatedInfo']=false;
+	?>
     <div class="container">
-    	<form class="form-horizontal" action='index.php' method="POST">
+    	<form class="form-horizontal" action='check-userdb.php' method="POST">
 		
 			<p>Datos del Usuario: </p>
 				<div class="form-group">
@@ -26,7 +43,7 @@
 					<div class="col-sm-10">
 					<input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre" required>
 					<input type="text" class="form-control" name="Apellido" id="Apellido" placeholder="Apellido" required>
-					<input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+					<input type="text" class="form-control" name="username" id="username" placeholder="Email" required>
 					<input type="text" class="form-control" name="password" id="password" placeholder="Password" required>
 					</div>
 				</div>
