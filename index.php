@@ -70,6 +70,9 @@ if($_SESSION['wrongInfo']==true){
           </div>
           <button type="submit" class="btn btn-default">Login</button>
         </form>
+        <form class="navbar-form navbar-left" method="POST" action="create-account.php">
+          <button type="submit" class="btn btn-default">Crear Cuenta</button>
+        </form>
       <?php endif; ?>
       </div>
     </nav>
