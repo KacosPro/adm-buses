@@ -10,7 +10,6 @@
 			$rows =$user->num_rows;
 			if ($rows=='1'){
 				while($row= $user->fetch_assoc()){					
-					$_SESSION['usr']=$row['username'];
   					$_SESSION['repeatedInfo']= true;
   					echo"<script type='text/javascript'>location.href ='" . $_SERVER['HTTP_REFERER'] . "';</script>";
 				}
@@ -18,7 +17,7 @@
 				$_SESSION['repeatedInfo']= false;
 				$_SESSION['loggedin']=true;
 				if ($_SESSION['previouspage'] !="http://localhost/adm-busess/login.php"){
-				echo"<script type='text/javascript'>location.href ='". $_SESSION['previouspage'] . "';</script>";
+				echo"<script type='text/javascript'>location.href ='index.php';</script>";
 				}else{
 					echo"<script type='text/javascript'>location.href ='purchase.php';</script>";
 				}

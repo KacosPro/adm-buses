@@ -12,10 +12,13 @@ if(isset($_SESSION['loggedin'])){
 }else{
 	$login = false;
 }
-if($_SESSION['wrongInfo']==true){
-	$wrongInfo = true;
-}else{
-	$wrongInfo = false;
+
+if(isset($_SESSION['wrongInfo'])){
+	if($_SESSION['wrongInfo']==true){
+		$wrongInfo = true;
+	}else{
+		$wrongInfo = false;
+	}
 }
 
 ?>
