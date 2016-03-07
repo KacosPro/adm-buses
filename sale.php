@@ -4,6 +4,13 @@ include('manager/bd-access.php');
 
 session_start();
 
+$auxID = $_SESSION['usr'];
+
+$db = Database::getInstance();
+$mysqli = $db->getConnection();
+$selectQuery = ("SELECT id FROM usernames WHERE username = '$auxID';" );
+$idPoop = $mysqli->query($selectQuery)->fetch_array();
+$id = $idPoop['id'];
 $source = $_SESSION['source'];
 $destination = $_SESSION['destination'];
 $hour = $_SESSION['hour'];
@@ -22,7 +29,7 @@ $purchase = array(
 $parameters = array($source,$destination,$hour,$date);
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<title>NOPM | Autobuses de la Mayab</title>
@@ -84,10 +91,10 @@ $parameters = array($source,$destination,$hour,$date);
 				<p>----------------------------------------------------------------------------------------</p>
 				<br><br>
 				<?php
-					$dbAccess = new DBAccess;
+					$key = $_POST[$key];
 					$datetime = $parameters[3].' '.$parameters[2];
-					$query = "INSERT INTO reservaciones (nombre, origen, destino, fecha_hora) VALUES ('$_POST[$key]', '$parameters[0]', '$parameters[1]', '$datetime');";
-					$dbAccess->insert($query);
+					$query = "INSERT INTO reservaciones (nombre, user_id, origen, destino, fecha_hora) VALUES ('$key', $id, '$source', '$destination', '$datetime');";
+					$mysqli->query($query);
 				?>
 			<?php endif; ?>
 		<?php endforeach; ?>

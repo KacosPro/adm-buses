@@ -76,7 +76,7 @@ if($_SESSION['wrongInfo']==true){
         </ul>
           <button type="submit" class="btn btn-default">Cerrar Sesion</button>
         </form>
-         <button type="button" disabled class="btn btn-default">Mostrar Historial</button>
+         <a href="history.php" role="button" class="btn btn-default">Mostrar Historial</a>
       <?php else:?>
         <form class="navbar-form navbar-left" method="POST" action="checkOnDB.php">
           <div class="form-group">

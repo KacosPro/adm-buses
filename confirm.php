@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-
+$date = new DateTime($_SESSION['date']);
+$date = $date->format('y-m-d');
 $purchase = array(
 	"source" => $_SESSION['source'],
 	"destination" => $_SESSION['destination'],

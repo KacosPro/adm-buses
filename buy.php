@@ -49,7 +49,7 @@ $purchase = array(
         </ul>
           <button type="submit" class="btn btn-default">Cerrar Sesion</button>
         </form>
-         <button type="button" disabled class="btn btn-default">Mostrar Historial</button>
+         <a href="history.php" role="button" class="btn btn-default">Mostrar Historial</a>
       </div>
     </nav>
     <div class="container">
