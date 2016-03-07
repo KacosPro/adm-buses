@@ -61,7 +61,9 @@
 	<input type="submit" class="btn btn-default" value="Login">
 </form>
 <br>
-<button type="button" disabled class="btn btn-default">Crear cuenta</button>
+<form action="create-account.php">
+<button type="submit" class="btn btn-default">Crear cuenta</button>
+</form>
 <br>
 <br>
 <form action="purchase.php">

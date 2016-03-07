@@ -5,6 +5,7 @@ if($_SESSION['repeatedInfo']==true){
 }else{
 	$repeatedInfo = false;
 }
+$_SESSION['previouspage']=$_SERVER['HTTP_REFERER'];
 ?>
 
 <!DOCTYPE html>

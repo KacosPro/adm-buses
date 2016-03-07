@@ -16,7 +16,12 @@
 				}
 			}else{
 				$_SESSION['repeatedInfo']= false;
-				echo"<script type='text/javascript'>location.href ='index.php';</script>";
+				$_SESSION['loggedin']=true;
+				if ($_SESSION['previouspage'] !="http://localhost/adm-busess/login.php"){
+				echo"<script type='text/javascript'>location.href ='". $_SESSION['previouspage'] . "';</script>";
+				}else{
+					echo"<script type='text/javascript'>location.href ='purchase.php';</script>";
+				}
 			}
 			
 		}
