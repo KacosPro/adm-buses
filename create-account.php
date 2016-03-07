@@ -42,8 +42,8 @@ $_SESSION['previouspage']=$_SERVER['HTTP_REFERER'];
 				<div class="form-group">
 					
 					<div class="col-sm-10">
-					<input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre" required>
-					<input type="text" class="form-control" name="Apellido" id="Apellido" placeholder="Apellido" required>
+					<input type="text" class="form-control" name="Nombre" id="nombre" placeholder="Nombre" required>
+					<input type="text" class="form-control" name="Apellido" id="apellido" placeholder="Apellido" required>
 					<input type="text" class="form-control" name="username" id="username" placeholder="Email" required>
 					<input type="text" class="form-control" name="password" id="password" placeholder="Password" required>
 					<input type="submit" class="btn btn-default" value="Crear Cuenta">
