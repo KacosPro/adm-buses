@@ -12,7 +12,7 @@ class checkUsername{
 		}
 
 	public function addUser($u,$p,$f,$l){
-			$query= "INSERT INTO usernames VALUES (" . $u . "," . $p . "," . $f . "," . $l . ")";
+			$query= "INSERT INTO `usernames`(`username`, `password`, `firstName`, `lastName`) VALUES ('".$u."','".$p."','".$f."','".$l."')";
 			$dbAccess = new DBAccess;
 			$dbAccess->insert($query);
 		}

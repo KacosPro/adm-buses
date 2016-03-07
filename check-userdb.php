@@ -1,13 +1,7 @@
 	<?php
 	include('manager/check-username.php');
-	//include('manager/add-user.php');
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	$name = $_POST['nombre'];
-	$lastname = $_POST['apellido'];
 	$users = new checkUsername;
 	$user = $users->getUsername($username);
-	//$add = new addUsername;
 	retrieveUsernameDb($user);
 
 	function retrieveUsernameDb($user) {
@@ -19,7 +13,12 @@
   					echo"<script type='text/javascript'>location.href ='" . $_SERVER['HTTP_REFERER'] . "';</script>";
 				}
 			}else{
-				$users->addUser($username,$password,$nombre,$apellido);
+				$usern = $_POST['username'];
+				$pass = $_POST['password'];
+				$name = $_POST['nombre'];
+				$last = $_POST['apellido'];
+				$users = new checkUsername;
+				$users->addUser($usern,$pass,$name,$last);
 				$_SESSION['repeatedInfo']= false;
 				$_SESSION['loggedin']=true;
 				if ($_SESSION['previouspage'] !="http://localhost/adm-busess/login.php"){
